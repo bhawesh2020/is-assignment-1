@@ -3,6 +3,7 @@ const {removeSpaces,searchInArray}=require('./dependencies.js');
 const table=getTable();
 const vigenereEncrypt=(pt,key)=>{
     var rpt=removeSpaces(pt);
+    key=key.toUpperCase();
     rpt=rpt.toUpperCase();
     var i,x,y,ct="";
     for(i=0;i<rpt.length;i++){
@@ -16,7 +17,8 @@ const vigenereEncrypt=(pt,key)=>{
 
 const vigenereDecrypt=(ct,key)=>{
     var i,x,y,pt="";
-    rct=ct.toUpperCase();
+    var rct=ct.toUpperCase();
+    key=key.toUpperCase();
     for(i=0;i<rct.length;i++){
         y=key.charCodeAt(i%key.length)-65;
         x=String.fromCharCode(searchInArray(table[y],rct.charCodeAt(i))+65);

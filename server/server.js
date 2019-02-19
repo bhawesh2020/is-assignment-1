@@ -5,6 +5,7 @@ const {table,vigenereEncrypt,vigenereDecrypt}=require('./dependencies/vigenere.j
 var port=process.env.PORT || 3000;
 
 var app=express();
+app.use(express.static(__dirname + '/public'));
 
 app.get('/vigenere/encrypt/:key/:ptext',(req,res)=>{
     var plainText=req.params.ptext;
